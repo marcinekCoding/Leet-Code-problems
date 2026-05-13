@@ -7,10 +7,6 @@
 // 2 method 2+2+1
 // 3 method 2+1+1+1
 // my idea : bottom-up solution
-
-// 2 = 11 2
-// 3 = 111 21 12 = 3
-// 4 = 1111 22 211 121 112 = 5=2+3
 int climbStairs(int n) {
     int each_step[45];
     each_step[0]=1;
@@ -21,8 +17,18 @@ int climbStairs(int n) {
     return each_step[n-1];
 }
 
+//top-down solution (rekurencyjnie)
+int climbStairs2(int n) {
+    if(n==1) return 1;
+    if(n==2) return 2;
+
+    int methods=climbStairs2(n-1)+climbStairs2(n-2);
+    return methods;
+
+}
+
 int main() {
-    printf("metody: %d",climbStairs(5));
+    printf("metody: %d",climbStairs2(6));
 
 
 
